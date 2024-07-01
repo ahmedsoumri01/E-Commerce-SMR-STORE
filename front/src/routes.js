@@ -5,7 +5,7 @@ import {
    } from "react-router-dom";
 import RootLayout from "./layouts/RootLayout";
 import Home from "./pages/Home";
-import ContactUs from "./pages/ContactUs";
+import ContactUs from "./pages/contact-us/ContactUs";
 const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<RootLayout />}>
