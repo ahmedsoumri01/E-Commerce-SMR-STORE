@@ -1,44 +1,154 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Button } from "flowbite-react";
 import SMRLOGO from "../assets/images/Store.png";
+import { Avatar, Dropdown, Navbar } from "flowbite-react";
+import { MegaMenu } from "flowbite-react";
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <Link to={"/"} className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src={SMRLOGO} className="h-8" alt="Flowbite Logo" />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">SMR-STORE</span>
-        </Link>
-        <button
-          type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-          aria-controls="navbar-dropdown"
-          aria-expanded={isMenuOpen}
-          onClick={toggleMenu}
+    <Navbar fluid rounded className="bg-blue-500 text-white">
+      <Navbar.Brand href={"/"} >
+        <img
+          src={SMRLOGO}
+          className="mr-3 h-6 sm:h-9"
+          alt="Flowbite React Logo"
+        />
+        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+          SMR-STORE
+        </span>
+      </Navbar.Brand>
+      <div className="flex md:order-2">
+        <Button className="mx-2 text-black font-black bg-white"   >
+          login
+        </Button>
+        {/*    <Dropdown
+          arrowIcon={false}
+          inline
+          label={
+            <Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded />
+          }
         >
-          <span className="sr-only">Open main menu</span>
-          <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
-          </svg>
-        </button>
-        <div className={`${isMenuOpen ? 'block' : 'hidden'} w-full md:block md:w-auto`} id="navbar-dropdown">
-          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            <li>
-              <a href="#" className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Home</a>
-            </li>
-        
-      
-            <li>
-              <Link to={"/contact-us"} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</Link>
-            </li>
-          </ul>
-        </div>
+          <Dropdown.Header>
+            <span className="block text-sm">Bonnie Green</span>
+            <span className="block truncate text-sm font-medium">name@flowbite.com</span>
+          </Dropdown.Header>
+          <Dropdown.Item>Dashboard</Dropdown.Item>
+          <Dropdown.Item>Settings</Dropdown.Item>
+          <Dropdown.Item>Earnings</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item>Sign out</Dropdown.Item>
+        </Dropdown> */}
+        <Navbar.Toggle />
       </div>
-    </nav>
+      <Navbar.Collapse>
+        <Navbar.Link className="text-white"  href={"/"}/*  active */>
+          Home
+        </Navbar.Link>
+        <Navbar.Link>
+          <MegaMenu.Dropdown    toggle={<p className="text-white" >categories</p>}>
+            <ul className="grid grid-cols-3">
+              <div className="space-y-4 p-4">
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-primary-600 dark:hover:text-primary-500"
+                  >
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-primary-600 dark:hover:text-primary-500"
+                  >
+                    Library
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-primary-600 dark:hover:text-primary-500"
+                  >
+                    Resources
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-primary-600 dark:hover:text-primary-500"
+                  >
+                    Pro Version
+                  </a>
+                </li>
+              </div>
+              <div className="space-y-4 p-4">
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-primary-600 dark:hover:text-primary-500"
+                  >
+                    Contact Us
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-primary-600 dark:hover:text-primary-500"
+                  >
+                    Support Center
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-primary-600 dark:hover:text-primary-500"
+                  >
+                    Terms
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-primary-600 dark:hover:text-primary-500"
+                  >
+                    Blog
+                  </a>
+                </li>
+              </div>
+              <div className="space-y-4 p-4">
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-primary-600 dark:hover:text-primary-500"
+                  >
+                    Newsletter
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-primary-600 dark:hover:text-primary-500"
+                  >
+                    Playground
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-primary-600 dark:hover:text-primary-500"
+                  >
+                    License
+                  </a>
+                </li>
+              </div>
+            </ul>
+          </MegaMenu.Dropdown>
+        </Navbar.Link>
+        <Navbar.Link className="text-white" href="about-us">products</Navbar.Link>
+       
+        <Navbar.Link className="text-white"  href="about-us">About</Navbar.Link>
+        <Navbar.Link className="text-white"  href={"/contact-us"}>Contact</Navbar.Link>
+      </Navbar.Collapse>
+    </Navbar>
   );
 }

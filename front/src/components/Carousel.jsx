@@ -29,7 +29,7 @@ export default function Carousel() { const [currentIndex, setCurrentIndex] = use
     return (
       <div className="relative w-full" data-carousel="slide">
         {/* Carousel wrapper */}
-        <div className="relative h-64 overflow-hidden rounded-lg md:h-[600px]">
+        <div className="relative h-64 overflow-hidden rounded-lg md:h-[500px]">
           {images.map((image, index) => (
             <div
               key={index}

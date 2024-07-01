@@ -8,7 +8,7 @@ export default function RootLayout() {
   return (
     <div>
       <ToastContainer />
-      <main>
+      <main className="bg-gray-200/60" >
         <Header />
         <Outlet />
         <Footer />
